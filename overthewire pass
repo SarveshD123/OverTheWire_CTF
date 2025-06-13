@@ -1,0 +1,24 @@
+Bandit passwords
+L1 - ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If 'Simple ls and cat'
+L2 - 263JGJPfgU6LtdEvgfWU1XP5yac29mFx ' "-" filename read with cat<- or cat ./-'
+L3 - MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx 'If there are spaces in filename cat "file name"
+L4 - 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ 'Use ls -a to locate hidden files'
+L5 - 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw 'Human readable file only similar to L2'
+L6 - HWasnPhtq9AVKe0dmk45nxy20cvUa6EG 'Find command with various flags as per the info given "find . -readable -size 1033c ! -executable" human-readable , not executable and size of 1033 bytes was the info .
+L7 - morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj ' Find a file owned by user bandit7 and group bandit6 and of size 33 byte "find / -size 33c -user bandit7 -group bandit6 2>/dev/null" 2>/dev/null This part is to clear out the permission denied clutter .
+L8 - dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc 'Had to find the result written against the word millionth so used "grep millionth data.txt" .
+L9 - 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM ' Here there are many repetitive passwords but the original is not repeated hence we use "sort data.txt | uniq -u " This will compare every line of password to other and provide us with the password thats original and unique .
+L10 - FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey 'The file contains random binary junk and password is a string with "=" preceding it hence we use "strings data.txt |  grep "=" "
+L11 - dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr " The file is in base64 encoding hence we use " base64 -d data.txt" to decode the file "-d" is the decode flag.
+L12- 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 ' The file is in ROT13 encoding hence we use "cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m' " tr translates from one alphabet set to another as rot13 is a simple letter substitution cipher that replaces a letter with the 13th letter we trancelate A-Za-z to N-ZA-Mn-za-m.
+L13 - FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn ' The file is a compressed hexdump hence first we use 'xxd -r ' to reverse the hexdump and store it in different file then identify file type . It comes out as gzip hence we use 'gzip -d' then the file turns out to be a bzip2 hence we use 'bzip2 -d' this repeats a number of times then the files turns out to be a tar archive hence we use 'tar -xf' to extract contents . We repeat this until filetype comes out as an ASCII text . 
+L14 - MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS 'For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Hence we use the sshkey to login to next level 'ssh -i sshkey.private  bandit14@localhost -p 2220 ' -i suggests the identify flag which will identify the key bandit14 is the user given to us and hostname is local host .
+L15 - 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo ' The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost. Hence we use netcat 'nc localhost  30000 '. 
+L16 - kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx ' Similar to previous level here we use 'ncat --ssl localhost 30001' as we are said to submit the password to localhost on port 30001 using ssl .
+
+
+
+
+
+
+
