@@ -12,10 +12,6 @@ L10 - FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey 'The file contains random binary junk and
 L11 - dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr " The file is in base64 encoding hence we use " base64 -d data.txt" to decode the file "-d" is the decode flag.
 L12- 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 ' The file is in ROT13 encoding hence we use "cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m' " tr translates from one alphabet set to another as rot13 is a simple letter substitution cipher that replaces a letter with the 13th letter we trancelate A-Za-z to N-ZA-Mn-za-m.
 L13 - FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn ' The file is a compressed hexdump hence first we use 'xxd -r ' to reverse the hexdump and store it in different file then identify file type . It comes out as gzip hence we use 'gzip -d' then the file turns out to be a bzip2 hence we use 'bzip2 -d' this repeats a number of times then the files turns out to be a tar archive hence we use 'tar -xf' to extract contents . We repeat this until filetype comes out as an ASCII text . 
-L14 - MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS 'For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Hence we use the sshkey to login to next level 'ssh -i sshkey.private  bandit14@localhost -p 2220 ' -i suggests the identify flag which will identify the key bandit14 is the user given to us and hostname is local host .
-L15 - 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo ' The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost. Hence we use netcat 'nc localhost  30000 '. 
-L16 - kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx ' Similar to previous level here we use 'ncat --ssl localhost 30001' as we are said to submit the password to localhost on port 30001 using ssl .
-
 
 
 
